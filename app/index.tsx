@@ -1,8 +1,7 @@
 import React, { useState } from 'react';
 import { View, ScrollView, SafeAreaView } from 'react-native';
 import { Stack, useRouter } from 'expo-router';
-import { Colors, Sizes } from './sharedStyles/theme';
-// import { Bars3Icon } from;
+import { Colors, Sizes } from './sharedStyles';
 import {
   NearbyJobCard,
   Popularjobs,
@@ -18,9 +17,9 @@ const Home = () => {
         options={{
           headerStyle: { backgroundColor: Colors.lightWhite },
           headerShadowVisible: false,
-          headerLeft: () => (
-            <ScreenHeaderBtn icon={Bars3Icon}
-          )
+          // headerLeft: () => (
+          //   // <ScreenHeaderBtn icon={Bars3Icon}
+          // )
         }}
       ></Stack.Screen>
     </SafeAreaView>
