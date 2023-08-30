@@ -1,4 +1,5 @@
 import { Colors, Font, Sizes, Shadows } from './theme';
-import images from '..assets/images';
+import sammyImage from '../assets/images/sammy.jpeg';
+// BKMRK: Im going to have to do images one at a time
 
-export { Colors, Font, Sizes, Shadows };
+export { sammyImage, Colors, Font, Sizes, Shadows };
