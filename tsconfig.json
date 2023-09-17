@@ -1,0 +1,7 @@
+{
+  "compilerOptions": {
+    "strict": true
+  },
+  "include": ["./types/*", "./constants/*"],
+  "extends": "expo/tsconfig.base"
+}
