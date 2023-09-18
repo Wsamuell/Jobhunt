@@ -1,10 +1,23 @@
-import { StyleSheet } from "react-native";
+import { ImageStyle, ViewStyle, TextStyle } from 'react-native';
 
-import { COLORS, FONT, SIZES } from "../../../constants";
+import { COLORS, FONT, SIZES } from '../../../constants';
 
-const styles = StyleSheet.create({
+interface Styles {
+  container: ViewStyle;
+  userName: TextStyle;
+  welcomeMessage: TextStyle;
+  searchContainer: ViewStyle;
+  searchWrapper: ViewStyle;
+  searchInput: TextStyle;
+  searchBtn: ViewStyle;
+  searchBtnImage: ImageStyle;
+  tabsContainer: ViewStyle;
+  tab: (activeJobType: string, item: string) => ViewStyle;
+  tabText: (activeJobType: string, item: string) => TextStyle;
+}
+const styles: Styles = {
   container: {
-    width: "100%",
+    width: '100%',
   },
   userName: {
     fontFamily: FONT.regular,
@@ -18,9 +31,9 @@ const styles = StyleSheet.create({
     marginTop: 2,
   },
   searchContainer: {
-    justifyContent: "center",
-    alignItems: "center",
-    flexDirection: "row",
+    justifyContent: 'center',
+    alignItems: 'center',
+    flexDirection: 'row',
     marginTop: SIZES.large,
     height: 50,
   },
@@ -28,32 +41,32 @@ const styles = StyleSheet.create({
     flex: 1,
     backgroundColor: COLORS.white,
     marginRight: SIZES.small,
-    justifyContent: "center",
-    alignItems: "center",
+    justifyContent: 'center',
+    alignItems: 'center',
     borderRadius: SIZES.medium,
-    height: "100%",
+    height: '100%',
   },
   searchInput: {
     fontFamily: FONT.regular,
-    width: "100%",
-    height: "100%",
+    width: '100%',
+    height: '100%',
     paddingHorizontal: SIZES.medium,
   },
   searchBtn: {
     width: 50,
-    height: "100%",
+    height: '100%',
     backgroundColor: COLORS.tertiary,
     borderRadius: SIZES.medium,
-    justifyContent: "center",
-    alignItems: "center",
+    justifyContent: 'center',
+    alignItems: 'center',
   },
   searchBtnImage: {
-    width: "50%",
-    height: "50%",
+    width: '50%',
+    height: '50%',
     tintColor: COLORS.white,
   },
   tabsContainer: {
-    width: "100%",
+    width: '100%',
     marginTop: SIZES.medium,
   },
   tab: (activeJobType, item) => ({
@@ -67,6 +80,6 @@ const styles = StyleSheet.create({
     fontFamily: FONT.medium,
     color: activeJobType === item ? COLORS.secondary : COLORS.gray2,
   }),
-});
+};
 
 export default styles;
