@@ -1,22 +1,26 @@
-import { StatusBar } from 'expo-status-bar';
+import { Stack, useRouter } from 'expo-router';
 import React from 'react';
-import { StyleSheet, Text, View, Image } from 'react-native';
-import heart from './constants/icons';
+import { StyleSheet, Text, View, SafeAreaView, ScrollView } from 'react-native';
+
+import { COLORS, icons, images, SIZES } from './constants';
+import { Nearbyjobs, Popularjobs, ScreenHeaderBtn } from './components';
 
 export default function App() {
+  const router = useRouter();
   return (
-    <View style={styles.container}>
-      <Text>Open up App.tsx to start working on your app!</Text>
-      <StatusBar style="auto" />
-    </View>
+    <SafeAreaView style={styles.container}>
+      <Stack.Screen
+        options={{
+          headerStyle: { backgroundColor: COLORS.lightWhite },
+        }}
+      />
+    </SafeAreaView>
   );
 }
 
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: '#fff',
-    alignItems: 'center',
-    justifyContent: 'center',
+    backgroundColor: COLORS.lightWhite,
   },
 });
