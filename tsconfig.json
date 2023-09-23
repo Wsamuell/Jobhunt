@@ -1,7 +1,9 @@
 {
   "compilerOptions": {
+    "module": "ESNext",
+    "jsx": "react-jsx",
     "strict": true
   },
-  "include": ["./types/*", "./constants/*"],
+  "include": ["./types/*", "./constants/*", "**/*.tsx"],
   "extends": "expo/tsconfig.base"
 }

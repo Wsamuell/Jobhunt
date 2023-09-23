@@ -1,5 +1,5 @@
 import { Stack, useRouter } from 'expo-router';
-import React from 'react';
+import { useState } from 'react';
 import { StyleSheet, Text, View, SafeAreaView, ScrollView } from 'react-native';
 
 import { COLORS, icons, images, SIZES } from './constants';
@@ -12,6 +12,7 @@ export default function App() {
       <Stack.Screen
         options={{
           headerStyle: { backgroundColor: COLORS.lightWhite },
+          headerShadowVisible: false,
         }}
       />
     </SafeAreaView>
