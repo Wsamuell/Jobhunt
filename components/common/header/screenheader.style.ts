@@ -11,7 +11,7 @@ const styles: Styles = {
   btnContainer: {
     width: 40,
     height: 40,
-    backgroundColor: COLORS.white,
+    // backgroundColor: COLORS.lightWhite,
     borderRadius: SIZES.small / 1.25,
     justifyContent: 'center',
     alignItems: 'center',

@@ -2,46 +2,51 @@ import {
   SafeAreaProvider,
   useSafeAreaInsets,
 } from 'react-native-safe-area-context';
-import { View, Text, Image, StyleSheet } from 'react-native';
+import { IconDefinition } from '@fortawesome/fontawesome-svg-core';
+import { FontAwesomeIcon } from '@fortawesome/react-native-fontawesome';
+
+import {
+  View,
+  Text,
+  TouchableOpacity,
+  Image,
+  StyleSheet,
+  ImageSourcePropType,
+} from 'react-native';
 
 import styles from './screenheader.style';
 import { COLORS } from '../../../constants';
 
 type Prop = {
-  title?: string;
-  onPress?: () => void;
-  iconPath?: string;
-  picture?: string;
+  onPress: () => void;
+  iconPath?: IconDefinition; // thi
+  picture?: any; // any for now
+  dimension: number;
 };
 
-const ScreenHeaderBtn = ({ title, onPress, iconPath, picture }: Prop) => {
-  const insets = useSafeAreaInsets();
-
+const ScreenHeaderBtn = ({ onPress, iconPath, picture, dimension }: Prop) => {
   return (
-    <View
-      style={
-        {
-          // flex: 1,
-          // backgroundColor: COLORS.lightWhite,
-          // justifyContent: 'space-between',
-          // alignItems: 'center',
-          // paddingTop: insets.top,
-          // paddingBottom: insets.bottom,
-          // paddingLeft: insets.left,
-          // paddingRight: insets.right,
-        }
-      }
-    >
-      {/* {title && <Text>{title}</Text>} */}
-      <Text>ScreenHeaderBtn</Text>
-      {/* {picture && (
-        <Image
-          source={{ height: 24, width: 24, uri: picture }}
-          style={{ borderRadius: 12 }}
+    <TouchableOpacity onPress={onPress} style={styles.btnContainer}>
+      {iconPath && (
+        <FontAwesomeIcon
+          icon={iconPath}
+          size={dimension}
+          // color={COLORS.primary}
         />
-      )} */}
-      {/* {iconPath && <Image source={{ height: 24, width: 24, uri: iconPath }} />} */}
-    </View>
+      )}
+      {picture && (
+        <Image
+          source={picture}
+          resizeMode="cover"
+          style={{
+            width: dimension,
+            height: dimension,
+            borderRadius: dimension / 2,
+            // marginLeft: 5,
+          }}
+        />
+      )}
+    </TouchableOpacity>
   );
 };
 

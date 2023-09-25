@@ -14,8 +14,9 @@ import {
   ScrollView,
 } from 'react-native';
 
-import { COLORS, icons, images, SIZES } from './constants';
+import { COLORS, iconMap, images, SIZES } from './constants';
 import { Nearbyjobs, Popularjobs, ScreenHeaderBtn } from './components';
+import Home from './components/home/Home';
 
 const Stack = createNativeStackNavigator();
 const Tab = createBottomTabNavigator();
@@ -29,50 +30,30 @@ const App = () => {
       >
         <Stack.Screen
           name="Home"
+          component={Home}
           options={() => ({
             headerStyle: { backgroundColor: COLORS.lightWhite },
             headerShadowVisible: false,
-            headerLeft: () => <ScreenHeaderBtn iconPath={icons.menu} />,
-            headerRight: () => <ScreenHeaderBtn picture={icons.menu} />,
+            headerLeft: () => (
+              <ScreenHeaderBtn
+                iconPath={iconMap.menu}
+                dimension={20}
+                onPress={() => console.log('Menu pressed')}
+              />
+            ),
+            headerRight: () => (
+              <ScreenHeaderBtn
+                picture={images.profile}
+                dimension={30}
+                onPress={() => console.log('picture pressed')}
+              />
+            ),
             title: '',
           })}
-        >
-          {() => (
-            <Tab.Navigator
-              initialRouteName="Analitics"
-              tabBar={() => null}
-              screenOptions={{ headerShown: false }}
-            >
-              {/* <TouchableOpacity>
-                <Image source={{ uri: icons.menu }} style={styles.icon} />
-              </TouchableOpacity> */}
-              <Tab.Screen name="Analitics" component={ScreenHeaderBtn} />
-              <Tab.Screen name="Profile" component={ScreenHeaderBtn} />
-            </Tab.Navigator>
-          )}
-        </Stack.Screen>
-
-        <Stack.Screen name="Settings" component={ScreenHeaderBtn} />
+        />
       </Stack.Navigator>
     </NavigationContainer>
   );
 };
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    justifyContent: 'space-between',
-    alignItems: 'center',
-    flexDirection: 'row',
-    // justifyContent: 'space-between',
-    // alignItems: 'center',
-    paddingHorizontal: 16,
-    paddingTop: 8,
-    paddingBottom: 8,
-    backgroundColor: COLORS.gray2,
-  },
-  icon: {},
-  menu: {},
-});
 
 export default App;
